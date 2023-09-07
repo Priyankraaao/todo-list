@@ -1,0 +1,12 @@
+.wrapper-container {
+    display: flex;
+  }
+  
+  .sidebar {
+    width: 25%;
+  }
+  
+  .content {
+    width: 75%;
+  }
+  

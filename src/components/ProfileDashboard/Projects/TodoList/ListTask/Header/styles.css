@@ -1,0 +1,19 @@
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.count-badge {
+  color: #329C89;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 7px;
+  background: #ECF3F3;
+  width: 23px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

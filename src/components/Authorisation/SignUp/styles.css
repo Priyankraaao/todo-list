@@ -1,0 +1,34 @@
+.submit-button{
+    width: 314px;
+    height: 45px;
+    border-radius: 8px;
+    background: #329C89;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.input-control{
+    width: 314px;
+    height: 45px;
+    border-radius: 8px;
+    border: 1px solid #CBDBEA;
+    background: #FFF;
+    padding-left: 8px;
+}
+
+.line{
+    width: 314px;
+    height: 2px;
+    background: rgba(64, 145, 223, 0.12);
+
+}
+
+.input-control.input-error {
+    border: 1px solid #F65B2A;
+}
+
+.error{
+    color: #F65B2A;
+    font-size: 11px;
+  }

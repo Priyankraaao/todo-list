@@ -1,0 +1,54 @@
+.parent {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  padding: 112px;
+}
+
+.left-component {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  width: 60%;
+}
+
+.right-component {
+  background-color: #f0f0f0;
+  border-radius: 65px;
+  border: 2px solid rgba(26, 59, 88, 0.24);
+  background: #fff;
+  height: 644px;
+  width: 570px;
+  padding: 60px;
+  width: 40%;
+  padding-top: 88px;
+}
+
+.tab {
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.form-component {
+  display: flex;
+  justify-content: center;
+}
+
+.text {
+  color: rgba(26, 59, 88, 0.33);
+  font-size: 26px;
+  font-weight: 500;
+  cursor: pointer;
+  padding-bottom: 13px;
+}
+
+.text.active {
+  color: #1a3b58;
+  border-bottom: 2px solid #1a3b58;
+}
+
+.logo {
+  background-color: #fff;
+}

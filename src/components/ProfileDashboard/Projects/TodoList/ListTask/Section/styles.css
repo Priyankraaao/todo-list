@@ -1,0 +1,13 @@
+.section-container {
+  min-width: 300px;
+  border-radius: 15px;
+  background: #f5f9f9;
+}
+
+.section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 70vh;
+  overflow-y: scroll;
+}
