@@ -1,54 +1,47 @@
 import { connect } from "@/dbConfig/dbConfig";
+import User from "@/models/userModel";
 import { NextResponse } from "next/server";
-import Todo from "@/models/todoModels"; 
+import bcryptjs from "bcryptjs";
 
-connect();
 
-export async function POST(request) {
-  try {
-    const reqBody = await request.json();
-    const { taskId, title, description, status, userId } = reqBody;
+connect()
 
-    
-    const existingTask = await Todo.findOne({ taskId });
 
-    if (existingTask) {
-   
-      const updatedTask = await Todo.findOneAndUpdate(
-        { taskId },
-        { title, description, status, userId },
-        { new: true }
-      );
+export async function POST(request){
+    try {
+        const reqBody = await request.json()
+        const {username, email, password} = reqBody
 
-      return NextResponse.json({
-        message: "Task updated successfully",
-        task: updatedTask,
-      });
-    } else {
-     
-      const newTask = new Todo({
-        taskId,
-        title,
-        description,
-        status,
-        userId,
-      });
 
-      const savedTask = await newTask.save();
+        const user = await User.findOne({email})
 
-      if (!savedTask) {
-        return NextResponse.json(
-          { error: "Task could not be saved" },
-          { status: 500 }
-        );
-      }
+        if(user){
+            return NextResponse.json({error: "User already exists"}, {status: 400})
+        }
 
-      return NextResponse.json({
-        message: "Task created successfully",
-        task: savedTask,
-      });
+        const salt = await bcryptjs.genSalt(10)
+        const hashedPassword = await bcryptjs.hash(password, salt)
+
+        const newUser = new User({
+            username,
+            email,
+            password: hashedPassword
+        })
+
+        const savedUser = await newUser.save()
+        console.log(savedUser);
+
+        return NextResponse.json({
+            message: "User created successfully",
+            success: true,
+            savedUser
+        })
+        
+        
+
+
+    } catch (error) {
+        return NextResponse.json({error: error.message}, {status: 500})
+
     }
-  } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
-  }
 }
